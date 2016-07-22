@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.makadown.friends"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permission android:name="com.makadown.friends.provider.READWRITE"/>
+    <uses-permission android:name="com.makadown.friends.provider.READWRITE"/>
+    
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.WithActionBar" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/add_friend_title"/>
+
+        <activity android:name=".EditActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/edit_friend_title"/>
+
+        <activity android:name=".SearchActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/search_friends_title"/>
+
+        <provider
+            android:authorities="com.makadown.friends.provider"
+            android:name="com.makadown.friends.FriendsProvider"
+            android:exported="true"
+            android:readPermission="com.makadown.friends.provider.READWRITE"
+            android:writePermission="com.makadown.friends.provider.READWRITE"/>
+    </application>
+
+</manifest>
